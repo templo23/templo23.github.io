@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="stylee.css" type="text/css" rel="stylesheet"  >
+ 
+<style>
+ #table1 { width: 700px; }
+ #table { width: 700px; }
+ 
+</style>
+    </head>
+    <body>
+          <div class="masterpage">
+        
+  <div class= "header" > 
+   <div class="logo" > <img src="pictures/plogo21.png" style="float:right; margin-top:-15px" >
+</div>
+  <h1 class="title5"> SING IN  </h1> 
+        
+            
+        </div>
+        
+
+     <div class="ooo">
+        <center> <h1> this is a form</h1> </center>
+        <center>
+    <form class="formlogin" action="includes/signup.ac.php" method="POST">
+     <table id="table1">
+     
+      <tr>
+       <td>
+     Username:
+       </td>
+        <td>  Gender: 
+      </td>
+       </tr>
+      <tr>
+       <td>
+     <input type="text" name="username" value="insert " maxlength="10" required>
+     </td>
+       <td>
+        <input type="radio" name="gender" value="male" > male  <input type="radio" name="gender" value="female" >  female 
+       </td>
+      </tr>
+      <tr></tr>
+       <td>
+      Name:
+      </td>
+       <td>
+         E-mail: <br>
+       </td>
+       </tr>
+       <tr>
+        
+     
+       <td>
+      <input type="text" name="fname" value="Angel"required>
+      
+      </td>
+       <td>
+        <input type="text" name="email" value="@gmail.com" required>
+       </td>
+         </tr>
+       <tr>
+       <td>
+      Last:
+      </td>
+       </tr>
+       <tr>
+         <td>
+      <input type="text" name="lastname" value="Contreras"required>
+         </td>
+      </tr>
+    
+  </table>
+     <br>
+     <br>
+      who are you? <br><select type="text" name="wry" required>
+        <option> student</option>
+        <option> teacher</option>
+      </select>
+      <br><br>
+      <!-- name="sywa" means =" where you will attend"-->
+      where are you planning to attend? <br>
+    
+        <table id="table">
+         <tr>
+            <td>  <a href="http://www2.cuny.edu" >  <img class="imageforms" src="https://pbs.twimg.com/profile_images/914673103837515778/upEwUCnq_400x400.jpg"> </a> </td>
+            
+         </tr>
+         <tr>
+          <td> <input type="radio" name="sywa" value="CUNY">CUNY<br>
+          </td>
+         </tr>
+        
+         <tr>
+          <td>
+           <select><option>select you college</option>
+           <?php
+
+
+
+$dbservername = "localhost";
+$dbusername = "root";
+
+$dbpassword = "root";
+$dbname = "loginsystem";
+
+$conn = mysqli_connect ($dbservername,$dbusername, $dbpassword, $dbname );
+$sql = "SELECT * FROM college";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<option>".$row["colleges"]." </option>";
+    }
+   
+} else {
+    echo "0 results";
+}
+$conn->close();
+?> 
+           </select>
+          </td>
+         </tr>
+         <tr>
+          
+           <td>  <a href="https://www.suny.edu" >  <img class="imageforms" src="https://pbs.twimg.com/profile_images/926077922951168000/gcExyxyt_400x400.jpg"> </a></td>
+           
+          
+         </tr>
+         <tr>
+          <td>
+           <input type="radio" name="sywa" value="SUNY"> SUNY
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <select><option>select you college</option>
+           <?php
+
+
+
+$dbservername = "localhost";
+$dbusername = "root";
+
+$dbpassword = "root";
+$dbname = "loginsystem";
+
+$conn = mysqli_connect ($dbservername,$dbusername, $dbpassword, $dbname );
+$sql = "SELECT * FROM college";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<option>".$row["colleges"]." </option>";
+    }
+   
+} else {
+    echo "0 results";
+}
+$conn->close();
+?> 
+           </select>
+          </td>
+         </tr>
+         <tr>
+          <td>
+           <img class="imageforms" src="http://i0.kym-cdn.com/photos/images/original/000/839/165/229.jpg"></a>
+          </td>
+         </tr>
+         <tr>
+          <td> <input type="radio" name="sywa" value="I don't know"> I don't know <br>
+          </td>
+         </tr>
+          <tr>
+          <td>
+           <select><option>select you college</option>
+           <?php
+
+
+
+$dbservername = "localhost";
+$dbusername = "root";
+
+$dbpassword = "root";
+$dbname = "loginsystem";
+
+$conn = mysqli_connect ($dbservername,$dbusername, $dbpassword, $dbname );
+$sql = "SELECT * FROM college";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<option>".$row["colleges"]." </option>";
+    }
+   
+} else {
+    echo "0 results";
+}
+$conn->close();
+?> 
+           </select>
+          </td>
+         </tr>
+          <td>
+             <input type="radio" name="sywa" value="I don't know"> I don't know <br>
+          </td>
+         </tr>
+        </table>
+        have you won a scholarship? <br>
+        <select type="text" name="scholarship" required>
+         <option value="yes"> yes </option>
+         <option value="no"> no </option>
+        </select><br> 
+        <textarea name="sholarship" value="Contreras"> please describe  </textarea>
+        <br><br>
+        Your image: <input type="file" name="picture" ><br>
+        
+      
+       <input type="submit"> 
+        
+    </form>
+    </center>
+    </div>
+
+
+   </div>     
+ </body>
+    </html>
